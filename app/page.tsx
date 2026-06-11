@@ -10,7 +10,7 @@ import {
 
 /* ── Service tabs ── */
 const SERVICES = [
-  { id:"stewardship", label:"Property Stewardship", icon:"◈", color:"#00D4FF",
+  { id:"stewardship", label:"Property Stewardship", icon:"◈", color:"var(--cyan)",
     title:"Professional oversight that preserves value across every cycle.",
     desc:"We manage your real estate portfolio as a unified, governed system — not a collection of fragmented assets. From daily operations to strategic positioning, every decision is made within a documented governance framework.",
     items:["Unified portfolio governance","Quarterly performance reporting","Multi-custodian consolidation","Benchmark attribution","Regulatory compliance","Strategic asset positioning"] },
@@ -71,7 +71,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           HERO — Full-viewport glass experience
           ══════════════════════════════════════════════════ */}
-      <section ref={heroRef} style={{minHeight:"100vh",position:"relative",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",background:"linear-gradient(160deg,#0B1026 0%,#060B14 50%,#02040A 100%)"}}>
+      <section ref={heroRef} style={{minHeight:"100vh",position:"relative",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",background:"linear-gradient(160deg,var(--bg-0) 0%,var(--bg-1) 50%,var(--bg-0) 100%)"}}>
         {/* Background layers */}
         <motion.div style={{position:"absolute",inset:0,y:heroY}} className="will-change-transform">
           <OrbBg cyan violet blue warm/>
@@ -94,7 +94,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.7,duration:.6}} style={{marginBottom:24}}>
-                  <StrataMark size={48} animate style={{color:"#F1F5F9"}}/>
+                  <StrataMark size={48} animate style={{color:"var(--text-1)"}}/>
                 </motion.div>
 
                 <motion.h1
@@ -108,7 +108,7 @@ export default function Home() {
                   <span style={{color:"rgba(255,255,255,.25)"}}>its makers.</span>
                 </motion.h1>
 
-                <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:1.0,duration:.8}} className="t-xl" style={{color:"#64748B",maxWidth:480,marginBottom:12,lineHeight:1.75}}>
+                <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:1.0,duration:.8}} className="t-xl" style={{color:"var(--text-3)",maxWidth:480,marginBottom:12,lineHeight:1.75}}>
                   We organise real estate wealth — property management, brokerage, advisory, and facilities — into one governed, perpetual system.
                 </motion.p>
 
@@ -124,11 +124,11 @@ export default function Home() {
                 </motion.div>
 
                 <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.3,duration:.8}}
-                  style={{display:"flex",gap:32,paddingTop:28,borderTop:"1px solid rgba(255,255,255,.07)"}} className="hero-trust">
+                  style={{display:"flex",gap:32,paddingTop:28,borderTop:"1px solid var(--glass-border)"}} className="hero-trust">
                   {[{v:"SAR 2.4B+",l:"Under Governance"},{v:"3rd Gen",l:"Succession Depth"},{v:"100%",l:"Governance Coverage"}].map(item=>(
                     <div key={item.l}>
-                      <div style={{fontSize:"clamp(16px,2vw,22px)",fontWeight:800,color:"#00D4FF",letterSpacing:"-0.03em",filter:"drop-shadow(0 0 16px rgba(0,212,255,.5))"}}>{item.v}</div>
-                      <div className="t-xs" style={{color:"#334155",marginTop:3}}>{item.l}</div>
+                      <div style={{fontSize:"clamp(16px,2vw,22px)",fontWeight:800,color:"var(--cyan)",letterSpacing:"-0.03em",filter:"drop-shadow(0 0 16px rgba(0,212,255,.5))"}}>{item.v}</div>
+                      <div className="t-xs" style={{color:"var(--text-4)",marginTop:3}}>{item.l}</div>
                     </div>
                   ))}
                 </motion.div>
@@ -153,7 +153,7 @@ export default function Home() {
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
                         <div>
                           <div style={{fontSize:"clamp(18px,2vw,26px)",fontWeight:800,color:m.accent,letterSpacing:"-0.03em",lineHeight:1,filter:`drop-shadow(0 0 12px ${m.accent}66)`}}>{m.val}</div>
-                          <div style={{fontSize:12,color:"#64748B",marginTop:4}}>{m.label}</div>
+                          <div style={{fontSize:12,color:"var(--text-3)",marginTop:4}}>{m.label}</div>
                         </div>
                         <span style={{fontSize:10,color:m.accent,background:`${m.accent}14`,border:`1px solid ${m.accent}30`,borderRadius:100,padding:"3px 10px"}}>{m.sub}</span>
                       </div>
@@ -161,15 +161,21 @@ export default function Home() {
                   </motion.div>
                 ))}
 
-                <FloatingBadge accent="#00D4FF" top="-24px" right="-16px" delay={1.6} rotate={3}>
-                  <div style={{display:"flex",alignItems:"center",gap:8}}>
-                    <span style={{fontSize:18}}>🔒</span>
-                    <div>
-                      <div style={{fontSize:11,fontWeight:700,color:"#F1F5F9",lineHeight:1}}>Private & Confidential</div>
-                      <div style={{fontSize:10,color:"#64748B",marginTop:2}}>Institutional grade</div>
-                    </div>
-                  </div>
-                </FloatingBadge>
+                {/*
+<FloatingBadge accent="#00D4FF" top="-24px" right="-16px" delay={1.6} rotate={3}>
+  <div style={{display:"flex",alignItems:"center",gap:8}}>
+    <span style={{fontSize:18}}>🔒</span>
+    <div>
+      <div style={{fontSize:11,fontWeight:700,color:"var(--text-1)",lineHeight:1}}>
+        Private & Confidential
+      </div>
+      <div style={{fontSize:10,color:"var(--text-3)",marginTop:2}}>
+        Institutional grade
+      </div>
+    </div>
+  </div>
+</FloatingBadge>
+*/}
               </div>
             </div>
           </HeroGlass>
@@ -187,7 +193,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           METRICS SECTION
           ══════════════════════════════════════════════════ */}
-      <section style={{background:"rgba(6,11,20,.8)",backdropFilter:"blur(40px)",borderTop:"1px solid rgba(255,255,255,.06)",borderBottom:"1px solid rgba(255,255,255,.06)"}}>
+      <section style={{background:"var(--bg-alt)",backdropFilter:"blur(40px)",borderTop:"1px solid var(--glass-border)",borderBottom:"1px solid var(--glass-border)"}}>
         <div className="container">
           <div className="grid-4" style={{padding:"clamp(40px,5vw,64px) 0"}}>
             {[
@@ -203,8 +209,8 @@ export default function Home() {
                   fontVariantNumeric:"tabular-nums",lineHeight:1,marginBottom:8}}>
                   <Counter to={m.to} prefix={m.pre||""} suffix={m.suf} decimals={m.to<10?1:0}/>
                 </div>
-                <div style={{fontSize:14,color:"#94A3B8",fontWeight:600,marginBottom:4}}>{m.label}</div>
-                <div className="t-xs" style={{color:"#334155"}}>{m.sub}</div>
+                <div style={{fontSize:14,color:"var(--text-2)",fontWeight:600,marginBottom:4}}>{m.label}</div>
+                <div className="t-xs" style={{color:"var(--text-4)"}}>{m.sub}</div>
               </motion.div>
             ))}
           </div>
@@ -230,11 +236,11 @@ export default function Home() {
                   ["⬡","Perpetual Design","Structures built to outlast principals — transferring wealth and intent across generations."],
                   ["◉","Intelligence Layer","Real-time analytics across all holdings. No surprises. Full transparency."],
                 ].map(([icon,title,desc])=>(
-                  <div key={String(title)} style={{display:"flex",gap:16,padding:"18px 20px",background:"rgba(255,255,255,.035)",border:"1px solid rgba(255,255,255,.07)",borderRadius:16}}>
+                  <div key={String(title)} style={{display:"flex",gap:16,padding:"18px 20px",background:"var(--g1)",border:"1px solid var(--glass-border)",borderRadius:16}}>
                     <div style={{fontSize:20,width:40,flexShrink:0}}>{icon}</div>
                     <div>
-                      <div style={{fontSize:14,fontWeight:700,color:"#F1F5F9",marginBottom:4}}>{title}</div>
-                      <div className="t-sm" style={{color:"#64748B"}}>{desc}</div>
+                      <div style={{fontSize:14,fontWeight:700,color:"var(--text-1)",marginBottom:4}}>{title}</div>
+                      <div className="t-sm" style={{color:"var(--text-3)"}}>{desc}</div>
                     </div>
                   </div>
                 ))}
@@ -248,7 +254,7 @@ export default function Home() {
             <motion.div {...FS(.12)} style={{position:"relative"}}>
               <div style={{position:"relative",display:"flex",flexDirection:"column",gap:12}}>
                 {[
-                  {label:"Governance Layer",sub:"Constitutional documents · Voting rights · Succession protocols",color:"#00D4FF",h:72},
+                  {label:"Governance Layer",sub:"Constitutional documents · Voting rights · Succession protocols",color:"var(--cyan)",h:72},
                   {label:"Operations Layer",sub:"Day-to-day management · Vendor governance · Compliance monitoring",color:"#8A5CFF",h:72},
                   {label:"Intelligence Layer",sub:"Performance analytics · Risk monitoring · Benchmark attribution",color:"#4D8DFF",h:72},
                   {label:"Advisory Layer",sub:"Deal sourcing · Market intelligence · Transaction governance",color:"#A855F7",h:72},
@@ -257,8 +263,8 @@ export default function Home() {
                     <GlassCard style={{padding:"20px 24px",borderLeft:`2px solid ${layer.color}44`}}>
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                         <div>
-                          <div style={{fontSize:14,fontWeight:700,color:"#F1F5F9",marginBottom:4}}>{layer.label}</div>
-                          <div className="t-xs" style={{color:"#475569",textTransform:"none",letterSpacing:0,fontSize:12}}>{layer.sub}</div>
+                          <div style={{fontSize:14,fontWeight:700,color:"var(--text-1)",marginBottom:4}}>{layer.label}</div>
+                          <div className="t-xs" style={{color:"var(--text-3)",textTransform:"none",letterSpacing:0,fontSize:12}}>{layer.sub}</div>
                         </div>
                         <div style={{width:8,height:8,borderRadius:"50%",background:layer.color,boxShadow:`0 0 12px ${layer.color}`,flexShrink:0}}/>
                       </div>
@@ -275,7 +281,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           SERVICES — interactive tabs
           ══════════════════════════════════════════════════ */}
-      <section className="section" style={{background:"rgba(6,11,20,.5)",position:"relative",overflow:"hidden"}}>
+      <section className="section" style={{background:"var(--bg-alt)",position:"relative",overflow:"hidden"}}>
         <IrisBlob size={500} top="-10%" right="-5%" opacity={0.12}/>
         <GoldBlobComp size={350} bottom="-10%" left="-5%" delay={4}/>
         <div className="container" style={{position:"relative",zIndex:1}}>
@@ -291,7 +297,7 @@ export default function Home() {
                 style={{
                   padding:"10px 20px",borderRadius:100,fontSize:13,fontWeight:500,cursor:"pointer",
                   background:activeService===i?s.color:"rgba(255,255,255,.04)",
-                  color:activeService===i?"#020408":"#64748B",
+                  color:activeService===i?"#020408":"var(--text-3)",
                   border:`1px solid ${activeService===i?s.color:"rgba(255,255,255,.08)"}`,
                   transition:"all .25s",
                 }}>
@@ -308,16 +314,16 @@ export default function Home() {
               <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr",gap:"clamp(32px,4vw,64px)",alignItems:"start"}} className="grid-2">
                 <div>
                   <div style={{fontSize:28,marginBottom:16}}>{SERVICES[activeService].icon}</div>
-                  <h3 className="t-h3" style={{color:"#F1F5F9",marginBottom:16,lineHeight:1.25}}>{SERVICES[activeService].title}</h3>
-                  <p className="t-lg" style={{color:"#64748B",marginBottom:32,lineHeight:1.8}}>{SERVICES[activeService].desc}</p>
+                  <h3 className="t-h3" style={{color:"var(--text-1)",marginBottom:16,lineHeight:1.25}}>{SERVICES[activeService].title}</h3>
+                  <p className="t-lg" style={{color:"var(--text-3)",marginBottom:32,lineHeight:1.8}}>{SERVICES[activeService].desc}</p>
                   <Link href="/services" className="btn btn-primary">Explore {SERVICES[activeService].label} →</Link>
                 </div>
                 <div style={{display:"flex",flexDirection:"column",gap:10}}>
                   {SERVICES[activeService].items.map((item,i)=>(
                     <motion.div key={item} initial={{opacity:0,x:20}} animate={{opacity:1,x:0}} transition={{delay:i*.06}}>
-                      <div style={{display:"flex",gap:12,padding:"14px 18px",background:"rgba(255,255,255,.035)",border:"1px solid rgba(255,255,255,.07)",borderRadius:12,alignItems:"center"}}>
+                      <div style={{display:"flex",gap:12,padding:"14px 18px",background:"var(--g1)",border:"1px solid var(--glass-border)",borderRadius:12,alignItems:"center"}}>
                         <div style={{width:6,height:6,borderRadius:"50%",background:SERVICES[activeService].color,flexShrink:0,boxShadow:`0 0 8px ${SERVICES[activeService].color}`}}/>
-                        <span style={{fontSize:13,color:"#94A3B8"}}>{item}</span>
+                        <span style={{fontSize:13,color:"var(--text-2)"}}>{item}</span>
                       </div>
                     </motion.div>
                   ))}
@@ -349,7 +355,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           PHILOSOPHY SECTION
           ══════════════════════════════════════════════════ */}
-      <section className="section" style={{background:"rgba(6,11,20,.6)",position:"relative",overflow:"hidden"}}>
+      <section className="section" style={{background:"var(--bg-alt)",position:"relative",overflow:"hidden"}}>
         <IrisBlob size={600} top="-20%" left="-10%" opacity={0.1}/>
         <div className="container" style={{position:"relative",zIndex:1}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(48px,6vw,96px)",alignItems:"center"}} className="grid-2">
@@ -364,10 +370,10 @@ export default function Home() {
                   { n:"03", title:"Transparency over opacity", desc:"Principals deserve complete visibility. We deliver quarterly governance packs, real-time performance data, and unconditional access to every decision rationale." },
                 ].map((p,i)=>(
                   <motion.div key={p.n} {...FU(.08+i*.1)} style={{display:"flex",gap:20,alignItems:"flex-start"}}>
-                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(0,212,255,.09)",border:"1px solid rgba(0,212,255,.25)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"var(--font-geist-mono,'Courier New'),monospace",fontSize:11,color:"#00D4FF",fontWeight:700}}>{p.n}</div>
+                    <div style={{width:36,height:36,borderRadius:10,background:"rgba(0,212,255,.09)",border:"1px solid rgba(0,212,255,.25)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontFamily:"var(--font-geist-mono,'Courier New'),monospace",fontSize:11,color:"var(--cyan)",fontWeight:700}}>{p.n}</div>
                     <div>
-                      <div style={{fontSize:15,fontWeight:700,color:"#F1F5F9",marginBottom:6}}>{p.title}</div>
-                      <p className="t-sm" style={{color:"#64748B",lineHeight:1.75}}>{p.desc}</p>
+                      <div style={{fontSize:15,fontWeight:700,color:"var(--text-1)",marginBottom:6}}>{p.title}</div>
+                      <p className="t-sm" style={{color:"var(--text-3)",lineHeight:1.75}}>{p.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -379,15 +385,15 @@ export default function Home() {
                 <div style={{fontSize:56,marginBottom:16,filter:"drop-shadow(0 0 32px rgba(0,212,255,.5))"}}>
                   <RippleSphere size={120} style={{margin:"0 auto"}}/>
                 </div>
-                <blockquote style={{fontSize:"clamp(18px,2.2vw,26px)",fontWeight:700,color:"#F1F5F9",lineHeight:1.45,marginBottom:16,fontStyle:"italic"}}>
+                <blockquote style={{fontSize:"clamp(18px,2.2vw,26px)",fontWeight:700,color:"var(--text-1)",lineHeight:1.45,marginBottom:16,fontStyle:"italic"}}>
                   "Wealth, structured to outlast its makers."
                 </blockquote>
-                <div className="t-xs" style={{color:"#334155",marginBottom:32}}>QMULATE FOUNDING PRINCIPLE · 2019</div>
-                <div style={{display:"flex",justifyContent:"center",gap:24,paddingTop:24,borderTop:"1px solid rgba(255,255,255,.07)"}}>
+                <div className="t-xs" style={{color:"var(--text-4)",marginBottom:32}}>QMULATE FOUNDING PRINCIPLE · 2019</div>
+                <div style={{display:"flex",justifyContent:"center",gap:24,paddingTop:24,borderTop:"1px solid var(--glass-border)"}}>
                   {[{v:"6",l:"Core Governance Layers"},{v:"∞",l:"Succession Horizon"}].map(item=>(
                     <div key={item.l} style={{textAlign:"center"}}>
-                      <div style={{fontSize:28,fontWeight:900,color:"#00D4FF",filter:"drop-shadow(0 0 16px rgba(0,212,255,.5))"}}>{item.v}</div>
-                      <div className="t-xs" style={{color:"#334155",marginTop:4}}>{item.l}</div>
+                      <div style={{fontSize:28,fontWeight:900,color:"var(--cyan)",filter:"drop-shadow(0 0 16px rgba(0,212,255,.5))"}}>{item.v}</div>
+                      <div className="t-xs" style={{color:"var(--text-4)",marginTop:4}}>{item.l}</div>
                     </div>
                   ))}
                 </div>
@@ -416,10 +422,10 @@ export default function Home() {
                   {i%2===0 ? (
                     <>
                       <div style={{textAlign:"right",paddingRight:40,paddingTop:8}}>
-                        <div style={{fontSize:"clamp(28px,3.5vw,44px)",fontWeight:900,color:item.current?"#00D4FF":"#1E293B",letterSpacing:"-0.04em",fontVariantNumeric:"tabular-nums",marginBottom:8,filter:item.current?"drop-shadow(0 0 20px rgba(0,212,255,.5))":undefined}}>{item.year}</div>
+                        <div style={{fontSize:"clamp(28px,3.5vw,44px)",fontWeight:900,color:item.current?"#00D4FF":"var(--text-5)",letterSpacing:"-0.04em",fontVariantNumeric:"tabular-nums",marginBottom:8,filter:item.current?"drop-shadow(0 0 20px rgba(0,212,255,.5))":undefined}}>{item.year}</div>
                         <GlassCard style={{padding:"20px 24px",display:"inline-block",textAlign:"left"}}>
-                          <div style={{fontSize:15,fontWeight:700,color:"#F1F5F9",marginBottom:6}}>{item.title}</div>
-                          <p className="t-sm" style={{color:"#64748B"}}>{item.desc}</p>
+                          <div style={{fontSize:15,fontWeight:700,color:"var(--text-1)",marginBottom:6}}>{item.title}</div>
+                          <p className="t-sm" style={{color:"var(--text-3)"}}>{item.desc}</p>
                         </GlassCard>
                       </div>
                       <div/>
@@ -428,10 +434,10 @@ export default function Home() {
                     <>
                       <div/>
                       <div style={{paddingLeft:40,paddingTop:8}}>
-                        <div style={{fontSize:"clamp(28px,3.5vw,44px)",fontWeight:900,color:item.current?"#00D4FF":"#1E293B",letterSpacing:"-0.04em",fontVariantNumeric:"tabular-nums",marginBottom:8,filter:item.current?"drop-shadow(0 0 20px rgba(0,212,255,.5))":undefined}}>{item.year}</div>
+                        <div style={{fontSize:"clamp(28px,3.5vw,44px)",fontWeight:900,color:item.current?"#00D4FF":"var(--text-5)",letterSpacing:"-0.04em",fontVariantNumeric:"tabular-nums",marginBottom:8,filter:item.current?"drop-shadow(0 0 20px rgba(0,212,255,.5))":undefined}}>{item.year}</div>
                         <GlassCard style={{padding:"20px 24px"}}>
-                          <div style={{fontSize:15,fontWeight:700,color:"#F1F5F9",marginBottom:6}}>{item.title}</div>
-                          <p className="t-sm" style={{color:"#64748B"}}>{item.desc}</p>
+                          <div style={{fontSize:15,fontWeight:700,color:"var(--text-1)",marginBottom:6}}>{item.title}</div>
+                          <p className="t-sm" style={{color:"var(--text-3)"}}>{item.desc}</p>
                         </GlassCard>
                       </div>
                     </>
@@ -454,7 +460,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           FAQ
           ══════════════════════════════════════════════════ */}
-      <section className="section" style={{background:"rgba(6,11,20,.6)",position:"relative",overflow:"hidden"}}>
+      <section className="section" style={{background:"var(--bg-alt)",position:"relative",overflow:"hidden"}}>
         <div className="container" style={{position:"relative",zIndex:1}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1.5fr",gap:"clamp(48px,6vw,96px)",alignItems:"start"}} className="grid-2">
             <div style={{position:"sticky",top:80}}>
@@ -473,17 +479,17 @@ export default function Home() {
                       width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center",
                       gap:16,padding:"20px 24px",textAlign:"left",cursor:"pointer",
                     }}>
-                      <div style={{fontSize:14,fontWeight:600,color:"#F1F5F9",lineHeight:1.5}}>{item.q}</div>
+                      <div style={{fontSize:14,fontWeight:600,color:"var(--text-1)",lineHeight:1.5}}>{item.q}</div>
                       <motion.div animate={{rotate:activeFaq===i?45:0}} transition={{duration:.25}}
-                        style={{flexShrink:0,width:22,height:22,borderRadius:"50%",background:"rgba(255,255,255,.06)",
-                          display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,color:"#64748B"}}>+</motion.div>
+                        style={{flexShrink:0,width:22,height:22,borderRadius:"50%",background:"var(--g2)",
+                          display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,color:"var(--text-3)"}}>+</motion.div>
                     </button>
                     <AnimatePresence>
                       {activeFaq===i && (
                         <motion.div initial={{height:0,opacity:0}} animate={{height:"auto",opacity:1}} exit={{height:0,opacity:0}}
                           transition={{duration:.3}}>
-                          <div style={{padding:"0 24px 20px",borderTop:"1px solid rgba(255,255,255,.06)",paddingTop:16}}>
-                            <p className="t-sm" style={{color:"#64748B",lineHeight:1.8}}>{item.a}</p>
+                          <div style={{padding:"0 24px 20px",borderTop:"1px solid var(--glass-border)",paddingTop:16}}>
+                            <p className="t-sm" style={{color:"var(--text-3)",lineHeight:1.8}}>{item.a}</p>
                           </div>
                         </motion.div>
                       )}
@@ -499,7 +505,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           CTA SECTION
           ══════════════════════════════════════════════════ */}
-      <section className="section" style={{position:"relative",overflow:"hidden",background:"linear-gradient(160deg,#060B14,#0B1026)"}}>
+      <section className="section" style={{position:"relative",overflow:"hidden",background:"linear-gradient(160deg,var(--bg-1),var(--bg-0))"}}>
         <IrisBlob size={700} top="-30%" left="-15%" opacity={0.18}/>
         <GoldBlobComp size={400} bottom="-20%" right="-10%" delay={5}/>
         <Bubbles/>
@@ -511,7 +517,7 @@ export default function Home() {
           <motion.h2 {...FU(.08)} className="t-d gt-a" style={{marginBottom:20,fontSize:"clamp(44px,7vw,96px)"}}>
             Built to govern.<br/>Designed to last.
           </motion.h2>
-          <motion.p {...FU(.16)} className="t-xl" style={{color:"#64748B",maxWidth:540,margin:"0 auto 44px",lineHeight:1.75}}>
+          <motion.p {...FU(.16)} className="t-xl" style={{color:"var(--text-3)",maxWidth:540,margin:"0 auto 44px",lineHeight:1.75}}>
             If you are ready to move from managing assets to governing wealth, we would be glad to speak with you in confidence.
           </motion.p>
           <motion.div {...FU(.22)} style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
